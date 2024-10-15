@@ -1,0 +1,84 @@
+.landing_container {
+  
+  &::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: auto;
+    width: 100%;
+    height: 100%;
+    background-image: url(./../../assets/images/welcome.png);
+    z-index: -2;
+    height: 700px;
+    max-width: 1300px;
+   margin: auto;
+  }
+  .welcome_container {
+    display: flex;
+    height: 100%;
+    margin-top: 50px;
+    .welcome_content {
+      height: 100%;
+      width: 50%;
+      h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #041d57;
+        margin-bottom: 1rem;
+        margin: 0px 70px;
+      }
+
+      .offer{
+          margin: 5px 70px;
+          margin-top: 50px;
+          h2{
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0px;
+            text-align: left;
+            color: #4cc899;
+            padding: 0px;
+          }
+          p{
+              font-size: 15px;
+              margin: 0px;
+              padding: 0px;
+          }
+      }
+      .buttons{
+          margin: 0px 50px;
+      }
+      .welcome_progress_bar{
+        width: 80%;
+      }
+    }
+    .welcome_img{
+        margin: 40px 100px;
+    }
+  }
+}
+.input_class_container{
+  display: flex;
+  div{
+   input{
+     width: 95%;
+   }
+  }
+}
+.input_class{
+  margin: 10px;
+  padding: 10px;
+  width: 50%;
+}
+.input_class_text_area{
+  width: 50%;
+  margin: 10px;
+  padding: 10px;
+}
+.ant-modal-wrap{
+  top: -50px;
+}
+.ant-modal-body, .ant-modal-content{
+  width: 1200px;
+  left: -350px;
+}

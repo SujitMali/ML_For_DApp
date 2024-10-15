@@ -1,0 +1,30 @@
+.antd_progress_bar_container{
+    position: relative;
+    .ant-progress-show-info .ant-progress-outer{
+        margin-right: 0px;
+        padding-right: 0px;
+        margin: -10px 0px;
+        border-radius: 0px;
+    }
+    .ant-progress-inner{
+        margin-top: -20px;
+        border-radius: 0px;
+    }
+    .ant-progress-text{
+        display: none;
+    }
+    .title_text{
+        color: #ffffff;
+        background-color: #4cc899;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        text-align: center;
+        padding-top: 4px;
+        position: absolute;
+        z-index: 1;
+        top: -10px;
+        font-size: 12px;
+        font-weight: 500;
+    }
+}

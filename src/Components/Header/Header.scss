@@ -1,0 +1,27 @@
+.header_container{
+    // height: 110px;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    justify-content:  space-between;
+    padding: 15px 20px;
+    position: relative;
+    div{
+        margin: 0px 40px;
+    }
+    .logo_container{
+       height: 140px;
+       top: 0px;
+       position: absolute;
+       width: 180px;
+       background-color: #ffffff;
+       box-shadow: 2px 5px 5px #e5e5e5;
+       img {
+        height: 100%;
+        width: 100%;
+       }
+    }
+}
+.metamask_icon{
+    width: 15px;
+    margin: 0PX 10PX;
+}

@@ -1,0 +1,244 @@
+.campaign_container {
+  padding: 8%;
+  .campaign_brif {
+    display: flex;
+    justify-content: space-between;
+    height: 500px;
+
+    .img_container {
+      width: 48%;
+      img {
+        width: 100%;
+        height: 300px;
+        cursor: pointer;
+      }
+      div {
+        display: flex;
+        justify-content: space-between;
+
+        img {
+          width: 30%;
+          height: 100%;
+          margin: 20px 0px;
+          cursor: pointer;
+        }
+      }
+    }
+    .info_campaign {
+      width: 48%;
+      .canpaign_account {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        div {
+          width: 30%;
+          h2,
+          p {
+            padding: 0px;
+            margin: 0px;
+          }
+          h2 {
+            color: #18bfc3;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 24px;
+            padding-right: 2px;
+          }
+          p {
+            color: #666;
+            font-size: 18px;
+            line-height: 24px;
+            font-weight: 400;
+            margin-top: 5px;
+          }
+        }
+      }
+      .progress_bar {
+        width: 100%;
+        margin: 20px 0px;
+      }
+      .pledged {
+        p {
+          font-size: 18px;
+          line-height: 24px;
+          font-weight: 400;
+          margin-top: 5px;
+          margin: 0px;
+          margin-bottom: -15px;
+        }
+        h1 {
+          font-size: 3rem;
+          font-weight: bold;
+          color: #041d57;
+          margin-bottom: 20px;
+          margin: 0px;
+          margin-top: -10px;
+          span {
+            font-size: 15px;
+          }
+        }
+      }
+      .investors_sharks {
+        p {
+          font-size: 18px;
+          line-height: 24px;
+          font-weight: 400;
+          margin-top: 5px;
+          margin: 0px;
+          margin-bottom: -15px;
+        }
+        h1 {
+          font-size: 3rem;
+          font-weight: bold;
+          color: #ed6753;
+          margin-bottom: 20px;
+          margin: 0px;
+          margin-top: -10px;
+        }
+      }
+      .transaction_container {
+        display: flex;
+        margin-top: 30px;
+        div {
+          //width: 50%;
+          position: relative;
+          .select_value {
+            position: absolute;
+            z-index: 5;
+            left: 65%;
+            top: 10px;
+            outline: none;
+            border: none;
+          }
+        }
+        input {
+          width: 50%;
+          height: 40px;
+          font-size: 15px;
+        }
+        .ant-input-affix-wrapper {
+          width: 100%;
+        }
+        .ant-input-prefix {
+          border-right: 1px solid #d9d9d9;
+        }
+
+        .invest_button {
+          background-color: #18bfc3;
+          padding: 0px;
+          height: 50px;
+          width: 200px;
+          margin: 0px 20px;
+          font-size: 16px;
+          &:hover {
+            background-color: #4cc899;
+          }
+        }
+      }
+      .created_by {
+        border-top: 1px solid #eee;
+        margin: 20px 0px;
+        display: flex;
+        div {
+          margin: 20px 10px;
+          h6 {
+            margin: 0px;
+            padding: 0px;
+            font-size: 12px;
+            font-weight: 400;
+            color: #666;
+          }
+          p {
+            margin: 0px;
+            padding: 0px;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.85);
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+  .campaign_description {
+    display: flex;
+    justify-content: space-between;
+
+    .campaign_other_details {
+      border: 1px solid #e5e5e5;
+      box-shadow: 0 3px 5px 0 rgb(0 0 0 / 20%);
+      background-color: #ffffff;
+      padding: 10px;
+      width: 300px;
+      height: 40vh;
+      h2 {
+        border-bottom: 1px solid #e5e5e5;
+      }
+    }
+
+    .comapign_tabs {
+      .ant-tabs-tab {
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: -1px;
+        &:hover {
+          color: #18bfc3 !important;
+        }
+      }
+      .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+        color: #18bfc3 !important;
+        font-weight: 500;
+      }
+      .ant-tabs-ink-bar {
+        background: #18bfc3;
+      }
+    }
+  }
+}
+
+.ethereum_icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.transaction_record {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e5e5;
+  height: 50px;
+  margin: 10px 0px;
+  // box-shadow: 0 3px 5px 0 rgb(0 0 0 / 20%);
+  p {
+  }
+  h6 {
+    width: 40%;
+    overflow: hidden;
+    font-size: 15px;
+    font-weight: 400;
+    text-overflow: ellipsis;
+  }
+}
+.transaction_container {
+}
+
+.votes {
+  width: 400px;
+  padding: 10px;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    p {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+.withdraw {
+  button {
+    font-size: 18px;
+    height: fit-content;
+    padding: 5px;
+    background: #18bfc3;
+  }
+}

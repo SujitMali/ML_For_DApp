@@ -1,0 +1,37 @@
+.antd_button{
+    display: inline-block;
+    line-height: 1.15;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    color: #fff;
+    background-color: #42b992;
+    background-color: linear-gradient(to right, #6642b9, #e6e6e6);
+    border-color: #4cc899;
+    font-size: 10px;
+    width: 180px;
+    margin: 15px;
+    padding: 10px;
+    span{
+        font-size: 12px;
+        font-weight: bold;
+        padding-bottom: 5px;
+        letter-spacing: 1px;
+    }
+    &:hover{
+        background-color: #4cc899;
+        background-color: linear-gradient(to right, #6642b9, #e6e6e6);
+        border-color: #4cc899;
+    }
+}
+.ant-btn-primary{
+    padding: 50px;
+}
+.ant-btn-round.ant-btn-lg{
+    
+}

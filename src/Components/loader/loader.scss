@@ -1,0 +1,22 @@
+.loader {
+  margin-bottom: 20px;
+  padding: 30px 50px;
+  left: 0;
+  text-align: center;
+  background: rgba(34, 34, 34, 0.384);
+  border-radius: 4px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 100vh;
+  z-index: 5;
+}
+.ant-spin-spinning {
+  margin-top: 40vh;
+}
+.ant-spin {
+  color: white;
+}
+.ant-spin-dot-item {
+  background-color: #4cc899;
+}
