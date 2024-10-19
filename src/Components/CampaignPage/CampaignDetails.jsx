@@ -15,6 +15,7 @@ import ethlogo from "../../assets/images/ethereum1.png";
 import TabsComponent from "../Tabs/Tabs";
 import useAccount from "../../utils/useAccount";
 import { useState } from "react";
+import LoaderComponent from "../Loader";
 
 function toDateTime(secs) {
   var t = new Date(1970, 0, 1); // Epoch
@@ -23,13 +24,13 @@ function toDateTime(secs) {
   return news.toDateString();
 }
 
-
 export default function CampaignDetails() {
   const { TabPane } = Tabs;
   const [campaignDetails, setCampaignDetails] = React.useState({});
   const [isAuthenticated, setIAuthenticate] = React.useState(false);
   const [input, setInput] = React.useState("");
   const [select, setSelect] = React.useState("ETH");
+  const [analysis, setAnalysis] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
   const { addr } = useParams();
   const { account } = useAccount();
@@ -84,22 +85,48 @@ export default function CampaignDetails() {
   };
 
   //===================================================================================
+  const handleAnalyseButton = async () => {
+    try {
+      const dataToAnalyze = {
+        title: campaignDetails.title,
+        text: campaignDetails.description,
+      };
+      const response = await fetch("http://localhost:5000/api/analyze", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dataToAnalyze),
+      });
+      const result = await response.json();
+      if (response.ok) {
+        message.success("Campaign data analyzed successfully!");
+        setAnalysis(result.data);
+      } else {
+        message.error(result.error || "Failed to analyze campaign data");
+      }
+    } catch (error) {
+      console.error("Error analyzing campaign data:", error);
+      message.error("Failed to analyze campaign data");
+    }
+  };
+
   const handleSaveToMongoDB = async () => {
     try {
-       const dataToSave = {
-         title: campaignDetails.title, 
-         description: campaignDetails.description,
-         goal: ethers.utils.formatUnits(campaignDetails?.goal), // Convert to Ether string
-         pledged: ethers.utils.formatUnits(campaignDetails?.pledged), // Convert to Ether string
-         startDate: new Date(campaignDetails.startDate.toNumber() * 1000)
-           .toISOString()
-           .split("T")[0], 
-         endDate: new Date(campaignDetails.endDate.toNumber() * 1000)
-           .toISOString()
-           .split("T")[0], 
-         owner: campaignDetails.owner,
-         status: campaignDetails.status,
-       };
+      const dataToSave = {
+        title: campaignDetails.title,
+        description: campaignDetails.description,
+        goal: ethers.utils.formatUnits(campaignDetails?.goal), // Convert to Ether string
+        pledged: ethers.utils.formatUnits(campaignDetails?.pledged), // Convert to Ether string
+        startDate: new Date(campaignDetails.startDate.toNumber() * 1000)
+          .toISOString()
+          .split("T")[0],
+        endDate: new Date(campaignDetails.endDate.toNumber() * 1000)
+          .toISOString()
+          .split("T")[0],
+        owner: campaignDetails.owner,
+        status: campaignDetails.status,
+      };
 
       // Send the data to your backend
       const response = await fetch("http://localhost:5000/api/campaigns", {
@@ -125,8 +152,6 @@ export default function CampaignDetails() {
   };
 
   //===================================================================================
-
-
 
   const handleWithdraw = async () => {
     setIsLoading(true);
@@ -417,14 +442,39 @@ export default function CampaignDetails() {
 
             {/* =================================================================================== */}
 
-            <div>
+            <div className="flex items-center">
               <Button
                 className="antd_button"
-                onClick={handleSaveToMongoDB}
+                onClick={handleAnalyseButton}
                 type="ant-btn-primary"
               >
                 Analyze
               </Button>
+              {analysis !== "" && (
+                <div className="loader-container">
+                  <LoaderComponent
+                    loaderId="loader-not-genuine"
+                    percentageId="percentage-not-genuine"
+                    percentageValue={Math.round(analysis.ng)}
+                    color="#f44336"
+                    value={"Not Genuine"}
+                  />
+                  <LoaderComponent
+                    loaderId="loader-potentially-genuine"
+                    percentageId="percentage-potentially-genuine"
+                    percentageValue={Math.round(analysis.pg)}
+                    color="#ff9800"
+                    value={"Potentially Genuine"}
+                  />
+                  <LoaderComponent
+                    loaderId="loader-genuine"
+                    percentageId="percentage-genuine"
+                    percentageValue={Math.round(analysis.g)}
+                    color="#4caf50"
+                    value={"Genuine"}
+                  />
+                </div>
+              )}
             </div>
 
             {/* =================================================================================== */}

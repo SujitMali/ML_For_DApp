@@ -1,6 +1,31 @@
 .App {
-   max-width: 1300px;
-   margin: auto;
-   /* background-color: #f4f8fa; */
+  max-width: 1300px;
+  margin: auto;
+  /* background-color: #f4f8fa; */
 }
 
+.loader-container {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+}
+.circular-loader {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background: conic-gradient(#4caf50 0% 0%, #ccc 0%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.percentage {
+  position: absolute;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.label {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+}
