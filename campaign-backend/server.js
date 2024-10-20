@@ -38,7 +38,7 @@ app.post("/api/campaigns", async (req, res) => {
       .status(201)
       .json({ message: "Campaign created successfully!", campaign });
   } catch (error) {
-    console.error("Error saving campaign:", error); // Log the error
+    console.error("Error saving campaign:", error);
     res.status(400).json({ error: error.message });
   }
 });
@@ -47,7 +47,7 @@ app.post("/api/analyze", async (req, res) => {
   try {
     const { title, text } = req.body;
     exec(
-      "python sentiment_analysis.py ${title} ${text}",
+      `python sentiment_analysis.py ${title} ${text}`,
       (error, stdout, stderr) => {
         if (error) {
           console.error("Error analyzing data:", error);
